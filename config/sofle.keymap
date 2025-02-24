@@ -3,6 +3,35 @@
  *
  * SPDX-License-Identifier: MIT
  */
+#include <drivers/led_rgb.h>
+#include <drivers/oled.h>
+
+// Abilitare lo schermo OLED (I2C)
+#define OLED_DRIVER_ENABLE       true
+#define OLED_TIMEOUT             3000
+#define OLED_I2C_ADDRESS         0x3C
+#define OLED_DISPLAY_WIDTH       128
+#define OLED_DISPLAY_HEIGHT      64
+#define OLED_FONT_H             6
+#define OLED_FONT_W             6
+
+// Abilitare l'illuminazione RGB per tasto
+#define RGB_MATRIX_ENABLE        true
+#define RGB_MATRIX_LED_COUNT     42  // Numero di LED per una tastiera Sofle
+#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 255
+#define RGB_MATRIX_FRAMEBUFFER_EFFECTS
+
+// Configurazione dei colori RGB dei tasti
+#define RGB_MATRIX_STARTUP_MODE RGB_MATRIX_SOLID_COLOR
+#define RGB_MATRIX_STARTUP_COLOR RGB(255, 0, 0) // Rosso iniziale
+
+// Timeout per l'illuminazione RGB
+#define RGB_MATRIX_KEYPRESSES    true
+#define RGB_MATRIX_LAYER        true
+#define RGB_MATRIX_UNDYING_EFFECT true
+
+// La tastiera Sofle
+#define SOFTLE_KEYMAP <il_tuo_file_keymap>
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
